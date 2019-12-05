@@ -1,5 +1,5 @@
 ### Puzzle Creator
-![](images/ExampleCut.jpg)
+<img src="images/ExampleCut.jpg" width="240">
 
 My son has always liked puzzles and I saw one in December 2019 that was more angular than the traditional shapes.  I was pretty sure that this would make the puzzle more challenging to put together but was not certain.
 
