@@ -1,5 +1,6 @@
 ### Puzzle Creator
-![](images/ExampleCut.jpg =250x250)
+![](images/ExampleCut.jpg | width=200)
+
 My son has always liked puzzles and I saw one in December 2019 that was more angular than the traditional shapes.  I was pretty sure that this would make the puzzle more challenging to put together but was not certain.
 
 I wrote some software, captured here, to generate random puzzles and then used a 50W CO2 laser to cut out the resulting svg files. 
