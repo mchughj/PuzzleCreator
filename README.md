@@ -23,3 +23,4 @@ An SVG for the grid is then outputed.
 
 Here is an example output in svg format:
 ![](images/ExampleOutput.png)
+In this image the black and red walls would be cut out (using whatever mechanism you chose) and the green walls are the interior walls and should be ignored.  
