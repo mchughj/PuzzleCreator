@@ -1,9 +1,7 @@
 import random
+import argparse
 
 # Make a random 2D puzzle with angular shapes.
-
-MAX_COMPONENT_SIZE = 9
-MIN_COMPONENT_SIZE = 5
 
 class Cell:
     """ A cell is a component within the grid.  Each cell has an x and y 
@@ -236,7 +234,7 @@ class Grid:
 
         return result
 
-    def optimize_small_pieces(self):
+    def optimize_small_pieces(self, min_component_threshold):
         """ Find an remove all 'small' pieces.  This looks for any cell which can reach some number of cells
             below a threshold.  If it finds it then it considers all neighbors of that cell and the smallest
             count of cells that it can join with and removes the wall to join with that grouping.
@@ -246,7 +244,7 @@ class Grid:
                 c = self.cell_at(x, y)
                 reachable_cells = self.all_reachable(c)
 
-                if len(reachable_cells) < 4:
+                if len(reachable_cells) < min_component_threshold - 1:
                     print ("Optimize_walls; considering ({},{}) due to reachable count of {}".format(c.x, c.y, len(reachable_cells)))
                     # Tear down a wall between this cell and the neighbor who is unreachable with the smallest count
                     cell_smallest, direction_smallest, count_smallest = None, None, 10000
@@ -302,14 +300,16 @@ class Grid:
                     if adjacent_cell != None:
                         cell.remove_wall(adjacent_cell, random_direction)
 
-    def optimize_too_big_pieces(self):
+    def optimize_too_big_pieces(self, min_component_threshold, max_component_threshold):
         for y in range(self.height):
             for x in range(self.width):
                 cell = self.cell_at(x, y)
                 reachable_cells = self.all_reachable(cell)
                 starting_length = len(reachable_cells)
-                if starting_length > 15:
-                    while True:
+                if starting_length > max_component_threshold + 3:
+                    attempts = 0
+                    while attempts < 20:
+                        attempts += 1
                         # Choose a random cell and direction and create a wall.
                         rand_cell = random.choice(reachable_cells)
                         random_direction = random.choice(list(Cell.wall_compliments.keys()))
@@ -323,22 +323,31 @@ class Grid:
                             reachable_cells = self.all_reachable(cell)
 
                             # Avoid the situation where the resulting size is too small for either the remainder or the current.
-                            if len(reachable_cells) <= 3 or starting_length - len(reachable_cells) <= 3:
+                            if len(reachable_cells) <= (min_component_threshold - 1) or starting_length - len(reachable_cells) <= (min_component_threshold-1):
                                 rand_cell.set_wall(adjacent_cell, random_direction, prior_wall)
                             elif len(reachable_cells) != starting_length:
                                 print("too big; done.  Starting cell ({},{}), starting size: {}, ending size: {}".format(x, y, starting_length, len(reachable_cells)))
                                 break
 
-    def optimize_pieces(self):
-        self.optimize_small_pieces()
+    def optimize_pieces(self, min_component_threshold, max_component_threshold):
+        self.optimize_small_pieces(min_component_threshold)
         self.optimize_square_pieces()
-        self.optimize_too_big_pieces()
+        self.optimize_too_big_pieces(min_component_threshold, max_component_threshold)
 
+ap = argparse.ArgumentParser()
+ap.add_argument("-gw", "--gridwidth", required=False, default = 20, type = int, help="Width of the grid")
+ap.add_argument("-gh", "--gridheight", required=False, default = 20, type = int, help="Height of the grid")
+ap.add_argument("-s", "--seed", required=False, default = 0, type = int, help="Seed value used for random number generator")
+ap.add_argument("-x", "--walkx", required=False, default = 0, type = int, help="Cell starting location on X axis for initial walk")
+ap.add_argument("-y", "--walky", required=False, default = 0, type = int, help="Cell starting location on Y axis for initial walk")
+ap.add_argument("-m", "--maxcomponent", required=False, default = 9, type = int, help="Maximum starting size for a component")
+ap.add_argument("-i", "--mincomponent", required=False, default = 5, type = int, help="Minimum starting size for a component")
+args = vars(ap.parse_args())
 
-random.seed(0)
+random.seed(args["seed"])
 
 # Grid dimensions (ncols, nrows)
-width, height = 20, 20
+width, height = args["gridwidth"], args["gridheight"]
 
 # Step 1 - make a grid where every cell can reach every other cell.
 # Inspiration taken from here:  https://scipython.com/blog/making-a-maze/                                     
@@ -347,7 +356,7 @@ grid.make_all_cells_reachable()
 
 print(grid)
 
-walk = grid.dfs_walk(0,0)
+walk = grid.dfs_walk(args["walkx"],args["walky"])
 
 priorX = walk[0][0]
 priorY = walk[0][1]
@@ -364,7 +373,7 @@ for (x, y, direction, nextX, nextY) in walk:
 # within the grid.  
 current_index = 0
 while current_index < len(walk):
-    cut_point = random.randint(MIN_COMPONENT_SIZE, MAX_COMPONENT_SIZE)
+    cut_point = random.randint(args["mincomponent"], args["maxcomponent"])
 
     # If the cut_point would result in a very small sized final part
     # then we skip the cut_point
@@ -381,7 +390,7 @@ while current_index < len(walk):
     current_index += cut_point
 
 # Optimize the pieces
-grid.optimize_pieces()
+grid.optimize_pieces(args["mincomponent"], args["maxcomponent"])
 
 # Walk through each cell and its neighbors.  If there is a wall separating them but you can still get from one 
 # to another then classify this wall as an interior wall.

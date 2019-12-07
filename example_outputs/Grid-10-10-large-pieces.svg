@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="520"
+   height="520"
+   viewBox="-10 -10 520 520"
+   version="1.1"
+   id="svg2788"
+   sodipodi:docname="Grid-10-10-large-pieces.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata2792">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2256"
+     inkscape:window-height="1410"
+     id="namedview2790"
+     showgrid="false"
+     inkscape:zoom="1.8153846"
+     inkscape:cx="255.06435"
+     inkscape:cy="273.71161"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2788" />
+  <defs
+     id="defs2568">
+    <style
+       type="text/css"
+       id="style2566"><![CDATA[
+line {
+    stroke-linecap: square;
+    stroke-width: 1;
+}
+]]></style>
+  </defs>
+  <line
+     x1="50.0"
+     y1="0.0"
+     x2="50.0"
+     y2="50.0"
+     stroke="#000000"
+     id="line2570" />
+  <line
+     x1="50.0"
+     y1="50.0"
+     x2="50.0"
+     y2="100.0"
+     stroke="#000000"
+     id="line2572" />
+  <line
+     x1="0.0"
+     y1="150.0"
+     x2="50.0"
+     y2="150.0"
+     stroke="#00FF00"
+     id="line2574" />
+  <line
+     x1="50.0"
+     y1="200.0"
+     x2="50.0"
+     y2="250.0"
+     stroke="#00FF00"
+     id="line2576" />
+  <line
+     x1="50.0"
+     y1="250.0"
+     x2="50.0"
+     y2="300.0"
+     stroke="#FF0000"
+     id="line2578" />
+  <line
+     x1="50.0"
+     y1="300.0"
+     x2="50.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2580" />
+  <line
+     x1="50.0"
+     y1="350.0"
+     x2="50.0"
+     y2="400.0"
+     stroke="#000000"
+     id="line2582" />
+  <line
+     x1="50.0"
+     y1="400.0"
+     x2="50.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2584" />
+  <line
+     x1="0.0"
+     y1="500.0"
+     x2="50.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2586" />
+  <line
+     x1="50.0"
+     y1="450.0"
+     x2="50.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2588" />
+  <line
+     x1="50.0"
+     y1="100.0"
+     x2="100.0"
+     y2="100.0"
+     stroke="#000000"
+     id="line2590" />
+  <line
+     x1="100.0"
+     y1="100.0"
+     x2="100.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2592" />
+  <line
+     x1="100.0"
+     y1="150.0"
+     x2="100.0"
+     y2="200.0"
+     stroke="#000000"
+     id="line2594" />
+  <line
+     x1="50.0"
+     y1="250.0"
+     x2="100.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2596" />
+  <line
+     x1="100.0"
+     y1="250.0"
+     x2="100.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2598" />
+  <line
+     x1="50.0"
+     y1="400.0"
+     x2="100.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2600" />
+  <line
+     x1="50.0"
+     y1="500.0"
+     x2="100.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2602" />
+  <line
+     x1="100.0"
+     y1="450.0"
+     x2="100.0"
+     y2="500.0"
+     stroke="#FF0000"
+     id="line2604" />
+  <line
+     x1="100.0"
+     y1="50.0"
+     x2="150.0"
+     y2="50.0"
+     stroke="#00FF00"
+     id="line2606" />
+  <line
+     x1="100.0"
+     y1="100.0"
+     x2="150.0"
+     y2="100.0"
+     stroke="#00FF00"
+     id="line2608" />
+  <line
+     x1="100.0"
+     y1="200.0"
+     x2="150.0"
+     y2="200.0"
+     stroke="#000000"
+     id="line2610" />
+  <line
+     x1="150.0"
+     y1="200.0"
+     x2="150.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2612" />
+  <line
+     x1="100.0"
+     y1="300.0"
+     x2="150.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2614" />
+  <line
+     x1="100.0"
+     y1="350.0"
+     x2="150.0"
+     y2="350.0"
+     stroke="#00FF00"
+     id="line2616" />
+  <line
+     x1="150.0"
+     y1="300.0"
+     x2="150.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2618" />
+  <line
+     x1="100.0"
+     y1="400.0"
+     x2="150.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2620" />
+  <line
+     x1="100.0"
+     y1="450.0"
+     x2="150.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2622" />
+  <line
+     x1="100.0"
+     y1="500.0"
+     x2="150.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2624" />
+  <line
+     x1="150.0"
+     y1="50.0"
+     x2="200.0"
+     y2="50.0"
+     stroke="#00FF00"
+     id="line2626" />
+  <line
+     x1="200.0"
+     y1="0.0"
+     x2="200.0"
+     y2="50.0"
+     stroke="#FF0000"
+     id="line2628" />
+  <line
+     x1="200.0"
+     y1="50.0"
+     x2="200.0"
+     y2="100.0"
+     stroke="#000000"
+     id="line2630" />
+  <line
+     x1="150.0"
+     y1="150.0"
+     x2="200.0"
+     y2="150.0"
+     stroke="#00FF00"
+     id="line2632" />
+  <line
+     x1="200.0"
+     y1="100.0"
+     x2="200.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2634" />
+  <line
+     x1="150.0"
+     y1="250.0"
+     x2="200.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2636" />
+  <line
+     x1="200.0"
+     y1="200.0"
+     x2="200.0"
+     y2="250.0"
+     stroke="#00FF00"
+     id="line2638" />
+  <line
+     x1="200.0"
+     y1="250.0"
+     x2="200.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2640" />
+  <line
+     x1="150.0"
+     y1="350.0"
+     x2="200.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2642" />
+  <line
+     x1="150.0"
+     y1="400.0"
+     x2="200.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2644" />
+  <line
+     x1="150.0"
+     y1="450.0"
+     x2="200.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2646" />
+  <line
+     x1="150.0"
+     y1="500.0"
+     x2="200.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2648" />
+  <line
+     x1="250.0"
+     y1="0.0"
+     x2="250.0"
+     y2="50.0"
+     stroke="#00FF00"
+     id="line2650" />
+  <line
+     x1="250.0"
+     y1="50.0"
+     x2="250.0"
+     y2="100.0"
+     stroke="#00FF00"
+     id="line2652" />
+  <line
+     x1="200.0"
+     y1="150.0"
+     x2="250.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2654" />
+  <line
+     x1="250.0"
+     y1="150.0"
+     x2="250.0"
+     y2="200.0"
+     stroke="#000000"
+     id="line2656" />
+  <line
+     x1="200.0"
+     y1="250.0"
+     x2="250.0"
+     y2="250.0"
+     stroke="#00FF00"
+     id="line2658" />
+  <line
+     x1="200.0"
+     y1="300.0"
+     x2="250.0"
+     y2="300.0"
+     stroke="#FF0000"
+     id="line2660" />
+  <line
+     x1="200.0"
+     y1="350.0"
+     x2="250.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2662" />
+  <line
+     x1="250.0"
+     y1="300.0"
+     x2="250.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2664" />
+  <line
+     x1="250.0"
+     y1="350.0"
+     x2="250.0"
+     y2="400.0"
+     stroke="#000000"
+     id="line2666" />
+  <line
+     x1="200.0"
+     y1="450.0"
+     x2="250.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2668" />
+  <line
+     x1="250.0"
+     y1="400.0"
+     x2="250.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2670" />
+  <line
+     x1="200.0"
+     y1="500.0"
+     x2="250.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2672" />
+  <line
+     x1="300.0"
+     y1="50.0"
+     x2="300.0"
+     y2="100.0"
+     stroke="#00FF00"
+     id="line2674" />
+  <line
+     x1="300.0"
+     y1="100.0"
+     x2="300.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2676" />
+  <line
+     x1="250.0"
+     y1="200.0"
+     x2="300.0"
+     y2="200.0"
+     stroke="#000000"
+     id="line2678" />
+  <line
+     x1="300.0"
+     y1="150.0"
+     x2="300.0"
+     y2="200.0"
+     stroke="#FF0000"
+     id="line2680" />
+  <line
+     x1="300.0"
+     y1="200.0"
+     x2="300.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2682" />
+  <line
+     x1="250.0"
+     y1="300.0"
+     x2="300.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2684" />
+  <line
+     x1="300.0"
+     y1="250.0"
+     x2="300.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2686" />
+  <line
+     x1="300.0"
+     y1="350.0"
+     x2="300.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2688" />
+  <line
+     x1="250.0"
+     y1="450.0"
+     x2="300.0"
+     y2="450.0"
+     stroke="#00FF00"
+     id="line2690" />
+  <line
+     x1="250.0"
+     y1="500.0"
+     x2="300.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2692" />
+  <line
+     x1="350.0"
+     y1="0.0"
+     x2="350.0"
+     y2="50.0"
+     stroke="#00FF00"
+     id="line2694" />
+  <line
+     x1="300.0"
+     y1="100.0"
+     x2="350.0"
+     y2="100.0"
+     stroke="#000000"
+     id="line2696" />
+  <line
+     x1="350.0"
+     y1="100.0"
+     x2="350.0"
+     y2="150.0"
+     stroke="#FF0000"
+     id="line2698" />
+  <line
+     x1="300.0"
+     y1="250.0"
+     x2="350.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2700" />
+  <line
+     x1="350.0"
+     y1="200.0"
+     x2="350.0"
+     y2="250.0"
+     stroke="#00FF00"
+     id="line2702" />
+  <line
+     x1="300.0"
+     y1="300.0"
+     x2="350.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2704" />
+  <line
+     x1="300.0"
+     y1="400.0"
+     x2="350.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2706" />
+  <line
+     x1="350.0"
+     y1="350.0"
+     x2="350.0"
+     y2="400.0"
+     stroke="#FF0000"
+     id="line2708" />
+  <line
+     x1="350.0"
+     y1="400.0"
+     x2="350.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2710" />
+  <line
+     x1="300.0"
+     y1="500.0"
+     x2="350.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2712" />
+  <line
+     x1="350.0"
+     y1="450.0"
+     x2="350.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2714" />
+  <line
+     x1="400.0"
+     y1="50.0"
+     x2="400.0"
+     y2="100.0"
+     stroke="#000000"
+     id="line2716" />
+  <line
+     x1="350.0"
+     y1="150.0"
+     x2="400.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2718" />
+  <line
+     x1="400.0"
+     y1="100.0"
+     x2="400.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2720" />
+  <line
+     x1="350.0"
+     y1="250.0"
+     x2="400.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2722" />
+  <line
+     x1="350.0"
+     y1="300.0"
+     x2="400.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2724" />
+  <line
+     x1="350.0"
+     y1="350.0"
+     x2="400.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2726" />
+  <line
+     x1="400.0"
+     y1="300.0"
+     x2="400.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2728" />
+  <line
+     x1="400.0"
+     y1="350.0"
+     x2="400.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2730" />
+  <line
+     x1="350.0"
+     y1="500.0"
+     x2="400.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2732" />
+  <line
+     x1="400.0"
+     y1="50.0"
+     x2="450.0"
+     y2="50.0"
+     stroke="#000000"
+     id="line2734" />
+  <line
+     x1="400.0"
+     y1="150.0"
+     x2="450.0"
+     y2="150.0"
+     stroke="#00FF00"
+     id="line2736" />
+  <line
+     x1="400.0"
+     y1="200.0"
+     x2="450.0"
+     y2="200.0"
+     stroke="#00FF00"
+     id="line2738" />
+  <line
+     x1="450.0"
+     y1="150.0"
+     x2="450.0"
+     y2="200.0"
+     stroke="#00FF00"
+     id="line2740" />
+  <line
+     x1="400.0"
+     y1="250.0"
+     x2="450.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2742" />
+  <line
+     x1="450.0"
+     y1="250.0"
+     x2="450.0"
+     y2="300.0"
+     stroke="#00FF00"
+     id="line2744" />
+  <line
+     x1="450.0"
+     y1="300.0"
+     x2="450.0"
+     y2="350.0"
+     stroke="#00FF00"
+     id="line2746" />
+  <line
+     x1="400.0"
+     y1="400.0"
+     x2="450.0"
+     y2="400.0"
+     stroke="#00FF00"
+     id="line2748" />
+  <line
+     x1="400.0"
+     y1="450.0"
+     x2="450.0"
+     y2="450.0"
+     stroke="#00FF00"
+     id="line2750" />
+  <line
+     x1="450.0"
+     y1="400.0"
+     x2="450.0"
+     y2="450.0"
+     stroke="#00FF00"
+     id="line2752" />
+  <line
+     x1="400.0"
+     y1="500.0"
+     x2="450.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2754" />
+  <line
+     x1="450.0"
+     y1="50.0"
+     x2="500.0"
+     y2="50.0"
+     stroke="#FF0000"
+     id="line2756" />
+  <line
+     x1="500.0"
+     y1="0.0"
+     x2="500.0"
+     y2="50.0"
+     stroke="#000000"
+     id="line2758" />
+  <line
+     x1="450.0"
+     y1="100.0"
+     x2="500.0"
+     y2="100.0"
+     stroke="#00FF00"
+     id="line2760" />
+  <line
+     x1="500.0"
+     y1="50.0"
+     x2="500.0"
+     y2="100.0"
+     stroke="#000000"
+     id="line2762" />
+  <line
+     x1="500.0"
+     y1="100.0"
+     x2="500.0"
+     y2="150.0"
+     stroke="#000000"
+     id="line2764" />
+  <line
+     x1="500.0"
+     y1="150.0"
+     x2="500.0"
+     y2="200.0"
+     stroke="#000000"
+     id="line2766" />
+  <line
+     x1="450.0"
+     y1="250.0"
+     x2="500.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2768" />
+  <line
+     x1="500.0"
+     y1="200.0"
+     x2="500.0"
+     y2="250.0"
+     stroke="#000000"
+     id="line2770" />
+  <line
+     x1="500.0"
+     y1="250.0"
+     x2="500.0"
+     y2="300.0"
+     stroke="#000000"
+     id="line2772" />
+  <line
+     x1="500.0"
+     y1="300.0"
+     x2="500.0"
+     y2="350.0"
+     stroke="#000000"
+     id="line2774" />
+  <line
+     x1="500.0"
+     y1="350.0"
+     x2="500.0"
+     y2="400.0"
+     stroke="#000000"
+     id="line2776" />
+  <line
+     x1="500.0"
+     y1="400.0"
+     x2="500.0"
+     y2="450.0"
+     stroke="#000000"
+     id="line2778" />
+  <line
+     x1="450.0"
+     y1="500.0"
+     x2="500.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2780" />
+  <line
+     x1="500.0"
+     y1="450.0"
+     x2="500.0"
+     y2="500.0"
+     stroke="#000000"
+     id="line2782" />
+  <line
+     x1="0"
+     y1="0"
+     x2="500"
+     y2="0"
+     stroke="#000000"
+     id="line2784" />
+  <line
+     x1="0"
+     y1="0"
+     x2="0"
+     y2="500"
+     stroke="#000000"
+     id="line2786" />
+</svg>
