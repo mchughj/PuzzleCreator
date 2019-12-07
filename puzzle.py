@@ -1,7 +1,10 @@
 import random
 import argparse
+import ezdxf
 
-# Make a random 2D puzzle with angular shapes.
+# Create a 2D puzzle of angular shapes.  
+# This python script requires ezdxf:
+#    pip install ezdxf
 
 class Cell:
     """ A cell is a component within the grid.  Each cell has an x and y 
@@ -48,6 +51,9 @@ class Cell:
     def get_wall_color(self, direction):
         return Cell.wall_colors[self.barriers[direction]]
 
+    def get_wall_type(self, direction):
+        return self.barriers[direction]
+
     def remove_wall(self, other, direction):
         """Remove the wall between this cell and the other"""
         self.barriers[direction] = 'None'
@@ -82,8 +88,8 @@ class Grid:
         cell = self.cell_at(x, y)
         return cell.has_wall(direction)
 
-    def write_svg(self, filename):
-        """Write an SVG image of the Grid to filename."""
+    def write_dxf(self, filename):
+        """Write a DXF image of the Grid to filename."""
 
         aspect_ratio = self.width / self.height
         # Pad the grid all around by this amount.
@@ -94,42 +100,37 @@ class Grid:
         # Scaling factors mapping grid coordinates to image coordinates
         scy, scx = pixel_height / self.height, pixel_width / self.width
 
-        def write_svg_wall(f, x1, y1, x2, y2, color):
-            print('<line x1="{}" y1="{}" x2="{}" y2="{}" stroke="{}"/>'
-                                .format(x1, y1, x2, y2, color), file=f)
+        def write_dxf_wall(m, x1, y1, x2, y2, layer):
+            m.add_line((x1, y1), (x2, y2), dxfattribs={'layer': layer, 'lineweight': 150})
 
-        # Write the SVG image file for grid
-        with open(filename, 'w') as f:
-            # SVG preamble and styles.
-            print('<?xml version="1.0" encoding="utf-8"?>', file=f)
-            print('<svg xmlns="http://www.w3.org/2000/svg"', file=f)
-            print('    xmlns:xlink="http://www.w3.org/1999/xlink"', file=f)
-            print('    width="{:d}" height="{:d}" viewBox="{} {} {} {}">'
-                    .format(pixel_width+2*padding, pixel_height+2*padding,
-                        -padding, -padding, pixel_width+2*padding, pixel_height+2*padding),
-                  file=f)
-            print('<defs>\n<style type="text/css"><![CDATA[', file=f)
-            print('line {', file=f)
-            print('    stroke-linecap: square;', file=f)
-            print('    stroke-width: 1;\n}', file=f)
-            print(']]></style>\n</defs>', file=f)
-            # Draw the "South" and "East" walls of each cell, if present.
-            for x in range(self.width):
-                for y in range(self.height):
-                    cell = self.cell_at(x, y)
-                    if cell.has_wall('S'):
-                        x1, y1, x2, y2 = x*scx, (y+1)*scy, (x+1)*scx, (y+1)*scy
-                        write_svg_wall(f, x1, y1, x2, y2, cell.get_wall_color('S'))
-                    if cell.has_wall('E'): 
-                        x1, y1, x2, y2 = (x+1)*scx, y*scy, (x+1)*scx, (y+1)*scy
-                        write_svg_wall(f, x1, y1, x2, y2, cell.get_wall_color('E'))
-                        
-            # Draw the North and West grid border.
-            write_svg_wall(f, 0, 0, pixel_width, 0, "#000000")
-            write_svg_wall(f, 0, 0, 0, pixel_height, "#000000")
+        # Create a new DXF document.
+        doc = ezdxf.new(dxfversion='R2010')
 
-            print('</svg>', file=f)
+        # Create the layers for the walls to live on.  The layer names correspond to
+        # the wall types.
+        doc.layers.new('Normal', dxfattribs={'color': 0})
+        doc.layers.new('Extra', dxfattribs={'color': 1})
+        doc.layers.new('Interior', dxfattribs={'color': 2})
 
+        msp = doc.modelspace()
+        msp.set_plot_window((0,0),(pixel_width, pixel_height))
+
+        # Draw all of the walls of the grid.
+        for x in range(self.width):
+            for y in range(self.height):
+                cell = self.cell_at(x, y)
+                if cell.has_wall('S'):
+                    x1, y1, x2, y2 = x*scx, (y+1)*scy, (x+1)*scx, (y+1)*scy
+                    write_dxf_wall(msp, x1, y1, x2, y2, cell.get_wall_type('S'))
+                if cell.has_wall('E'): 
+                    x1, y1, x2, y2 = (x+1)*scx, y*scy, (x+1)*scx, (y+1)*scy
+                    write_dxf_wall(msp, x1, y1, x2, y2, cell.get_wall_type('E'))
+                    
+        # Draw the grid border walls on the top and left.
+        write_dxf_wall(msp, 0, 0, pixel_width, 0, "Normal")
+        write_dxf_wall(msp, 0, 0, 0, pixel_height, "Normal")
+
+        doc.saveas(filename)
 
     def find_unused_neighbors(self, cell):
         """Return a list of unvisited neighbours to cell."""
@@ -245,7 +246,7 @@ class Grid:
                 reachable_cells = self.all_reachable(c)
 
                 if len(reachable_cells) < min_component_threshold - 1:
-                    print ("Optimize_walls; considering ({},{}) due to reachable count of {}".format(c.x, c.y, len(reachable_cells)))
+                    print ("Optimize_small_pieces; considering ({},{}) due to reachable count of {}".format(c.x, c.y, len(reachable_cells)))
                     # Tear down a wall between this cell and the neighbor who is unreachable with the smallest count
                     cell_smallest, direction_smallest, count_smallest = None, None, 10000
 
@@ -258,7 +259,7 @@ class Grid:
                                 direction_smallest = direction
                                 count_smallest = len(reachable_from_neighor)
 
-                    print ("Optimize_walls; found smallest neighbor of ({},{}).  It is ({},{}) due to reachable count of {}".format(c.x, c.y, cell_smallest.x, cell_smallest.y, count_smallest))
+                    print ("Optimize_small_pieces; found smallest neighbor of ({},{}).  It is ({},{}) due to reachable count of {}".format(c.x, c.y, cell_smallest.x, cell_smallest.y, count_smallest))
                     c.remove_wall(cell_smallest, direction_smallest)
 
     def find_neighbor(self, cell, direction):
@@ -289,13 +290,13 @@ class Grid:
 
                 # print("Reachable squares for ({},{}): {} -- {}".format(x, y, len(reachable_cells), ",".join([str(x) for x in reachable_cells])))
                 if len(reachable_cells) == 4 and self.is_square(reachable_cells):
-                    print("Found a square shape at ({},{}) -- {}".format(x, y, ", ".join([str(x) for x in reachable_cells])))
+                    print("optimize_square_pieces; Found a square shape at ({},{}) -- {}".format(x, y, ", ".join([str(x) for x in reachable_cells])))
                     # Tear down a random wall.
                     random_direction_index = random.randint(0, 3)
                     random_direction = list(Cell.wall_compliments.keys())[random_direction_index]
 
                     adjacent_cell = self.find_neighbor(cell, random_direction)
-                    print("Chose a random direction: {}, found cell: {}".format(random_direction, adjacent_cell))
+                    print("optimize_square_pieces; Chose a random direction: {}, found cell: {}".format(random_direction, adjacent_cell))
 
                     if adjacent_cell != None:
                         cell.remove_wall(adjacent_cell, random_direction)
@@ -315,7 +316,7 @@ class Grid:
                         random_direction = random.choice(list(Cell.wall_compliments.keys()))
 
                         adjacent_cell = self.find_neighbor(rand_cell, random_direction)
-                        print("too big; Rand cell: {}, random direction: {}, found cell: {}".format(str(rand_cell),random_direction, adjacent_cell))
+                        print("optimize_too_big_pieces; Rand cell: {}, random direction: {}, found cell: {}".format(str(rand_cell),random_direction, adjacent_cell))
 
                         if adjacent_cell != None:
                             prior_wall = rand_cell.set_wall(adjacent_cell, random_direction, "Normal")
@@ -326,7 +327,7 @@ class Grid:
                             if len(reachable_cells) <= (min_component_threshold - 1) or starting_length - len(reachable_cells) <= (min_component_threshold-1):
                                 rand_cell.set_wall(adjacent_cell, random_direction, prior_wall)
                             elif len(reachable_cells) != starting_length:
-                                print("too big; done.  Starting cell ({},{}), starting size: {}, ending size: {}".format(x, y, starting_length, len(reachable_cells)))
+                                print("optimize_too_big_pieces - done; Starting cell ({},{}), starting size: {}, ending size: {}".format(x, y, starting_length, len(reachable_cells)))
                                 break
 
     def optimize_pieces(self, min_component_threshold, max_component_threshold):
@@ -342,6 +343,7 @@ ap.add_argument("-x", "--walkx", required=False, default = 0, type = int, help="
 ap.add_argument("-y", "--walky", required=False, default = 0, type = int, help="Cell starting location on Y axis for initial walk")
 ap.add_argument("-m", "--maxcomponent", required=False, default = 9, type = int, help="Maximum starting size for a component")
 ap.add_argument("-i", "--mincomponent", required=False, default = 5, type = int, help="Minimum starting size for a component")
+ap.add_argument("-o", "--output", required=False, default = 'grid.dxf', type = str, help="The filename with a dxf extension to hold the final output")
 args = vars(ap.parse_args())
 
 random.seed(args["seed"])
@@ -354,20 +356,20 @@ width, height = args["gridwidth"], args["gridheight"]
 grid = Grid(width, height)
 grid.make_all_cells_reachable()
 
-print(grid)
-
 walk = grid.dfs_walk(args["walkx"],args["walky"])
 
-priorX = walk[0][0]
-priorY = walk[0][1]
-for (x, y, direction, nextX, nextY) in walk:
-    s = "({}, {} ) -> {} -> ({}, {} )".format(x, y, str(direction), nextX, nextY)
-    if priorX != x or priorY != y:
-        print("Backtracked!  ",s)
-    else:
-        print("              ",s)
-    priorX = nextX
-    priorY = nextY
+# If you want to see the walk printed out then alter the following line.
+if False:
+    priorX = walk[0][0]
+    priorY = walk[0][1]
+    for (x, y, direction, nextX, nextY) in walk:
+        s = "({}, {} ) -> {} -> ({}, {} )".format(x, y, str(direction), nextX, nextY)
+        if priorX != x or priorY != y:
+            print("Backtracked!  ",s)
+        else:
+            print("              ",s)
+        priorX = nextX
+        priorY = nextY
 
 # Partition the walk into components by drawing a random interior wall 
 # within the grid.  
@@ -381,9 +383,6 @@ while current_index < len(walk):
         break
 
     (x1, y1, direction, x2, y2) = walk[current_index+cut_point]
-
-    print ("Adding random wall; ({},{}) -> {} -> ({},{})".format(x1, y1, direction, x2, y2))
-
     cut_cell = grid.cell_at(x1,y1)
     cut_cell.set_wall(grid.cell_at(x2,y2), direction, 'Extra')
 
@@ -395,5 +394,6 @@ grid.optimize_pieces(args["mincomponent"], args["maxcomponent"])
 # Walk through each cell and its neighbors.  If there is a wall separating them but you can still get from one 
 # to another then classify this wall as an interior wall.
 grid.find_interior_walls()
+grid.write_dxf(args["output"])
 
-grid.write_svg('grid.svg')
+print("Wrote finale output to {}".format(args["output"]))
