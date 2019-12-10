@@ -19,8 +19,8 @@ The general approach is as follows.
 	- Remove puzzle pieces which are just squares.  These aren't interesting enough IMO.
 	- Break a 'too big' puzzle piece into two smaller pieces.  
 
-An SVG for the grid is then outputed.  
+A DXF file for the grid is then outputed.  
 
-Here is an example output in svg format:
+Here is an example output in dxf format:
 ![](images/ExampleOutput.png)
-In this image the black and red walls would be cut out (using whatever mechanism you chose) and the green walls are the interior walls and should be ignored.  
+In this image the black and red walls would be cut out (using whatever mechanism you chose) and the green walls are the interior walls and should be ignored.  They are all on their own layers with relevant names so you can just hide the interior layer and then cut the remaining vectors.
